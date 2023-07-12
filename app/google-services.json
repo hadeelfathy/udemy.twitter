@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "289411252357",
+    "project_id": "udemy-twitter-f6660",
+    "storage_bucket": "udemy-twitter-f6660.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289411252357:android:ea2966bc4dcbb3da67e9ec",
+        "android_client_info": {
+          "package_name": "com.example.udemytwitter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289411252357-35beabgp7fsetucgvij4jinr64j2e46t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEp1ro6AOcnwV8Fw-YUytT3HlGn73HnHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "289411252357-35beabgp7fsetucgvij4jinr64j2e46t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
