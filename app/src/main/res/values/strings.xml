@@ -2,15 +2,9 @@
     <string name="app_name">udemy twitter</string>
 
 
-
-
     <string name="button_login">LOGIN</string>
 
     <string name="text_signup">No account? Go to Signup</string>
-
-
-
-
 
 
 </resources>
