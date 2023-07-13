@@ -14,7 +14,97 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
-            
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/grid_2x"
+                android:src="@drawable/title">
+
+            </ImageView>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailTEL"
+                android:layout_width="@dimen/standard_width"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/imageView"
+                android:layout_margin="@dimen/grid_2x" >
+
+
+              <com.google.android.material.textfield.TextInputEditText
+                  android:id="@+id/emailLET"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:hint="Email"
+                  android:inputType="textEmailAddress"
+
+
+
+               >
+              </com.google.android.material.textfield.TextInputEditText>
+
+
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordTEL"
+                android:layout_width="@dimen/standard_width"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/emailTEL"
+                android:layout_margin="@dimen/grid_2x" >
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordLET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+
+
+
+                    >
+                </com.google.android.material.textfield.TextInputEditText>
+
+
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/buttonLogin"
+                android:layout_width="@dimen/standard_width"
+                android:layout_height="@dimen/standard_height"
+                android:layout_below="@id/passwordTEL"
+                android:layout_centerHorizontal="true"
+                android:style="@styles/StandardButton"
+                android:text="@string/button_login"
+                android:layout_margin="@dimen/grid_2x"
+                >
+
+            </Button>
+
+            <TextView
+                android:id="@+id/signupTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/buttonLogin"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/grid_2x"
+                android:text="@string/text_signup"
+                android:style="@styles/LinkText"
+                android:clickable="true"
+                />
+
+
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
 
@@ -27,5 +117,14 @@
         android:orientation="vertical"
         android:visibility="gone">
 
+
+
+        <ProgressBar
+
+
+
+            >
+
+        </ProgressBar>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
