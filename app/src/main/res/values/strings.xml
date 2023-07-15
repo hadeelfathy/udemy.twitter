@@ -8,7 +8,7 @@
     <string name="text_login">Already have an account? Go to Login</string>
 
 
-
+    <string name="hint_search">Search</string>
     <string name="hint_username">Username</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>

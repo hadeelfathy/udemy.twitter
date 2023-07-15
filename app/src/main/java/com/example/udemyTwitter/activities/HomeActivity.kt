@@ -1,10 +1,11 @@
-package com.example.udemyTwitter
+package com.example.udemyTwitter.activities
 
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.udemyTwitter.R
 import com.google.firebase.auth.FirebaseAuth
 
 class HomeActivity : AppCompatActivity() {
@@ -27,7 +28,7 @@ class HomeActivity : AppCompatActivity() {
 
 
   companion object{
-      fun newIntent(context: Context)=Intent(context,HomeActivity::class.java)
+      fun newIntent(context: Context)=Intent(context, HomeActivity::class.java)
   }
 
 
