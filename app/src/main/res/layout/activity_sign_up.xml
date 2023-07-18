@@ -7,10 +7,10 @@
     tools:context=".activities.SignUpActivity">
 
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        tools:fillViewport="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -21,7 +21,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
+                tools:layout_centerHorizontal="true"
                 android:layout_margin="@dimen/grid_2x"
                 android:src="@drawable/title">
 
@@ -32,8 +32,8 @@
                 android:id="@+id/userTEL"
                 android:layout_width="@dimen/standard_width"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/imageView"
+                tools:layout_centerHorizontal="true"
+                tools:layout_below="@id/imageView"
                 android:layout_margin="@dimen/grid_2x" >
 
 
@@ -60,8 +60,8 @@
                 android:id="@+id/emailTEL"
                 android:layout_width="@dimen/standard_width"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/userTEL"
+                tools:layout_centerHorizontal="true"
+                tools:layout_below="@id/userTEL"
                 android:layout_margin="@dimen/grid_2x" >
 
 
@@ -87,8 +87,8 @@
                 android:id="@+id/passwordTEL"
                 android:layout_width="@dimen/standard_width"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/emailTEL"
+                tools:layout_centerHorizontal="true"
+                tools:layout_below="@id/emailTEL"
                 android:layout_margin="@dimen/grid_2x" >
 
 
@@ -109,14 +109,14 @@
                 android:id="@+id/buttonSignup"
                 android:layout_width="@dimen/standard_width"
                 android:layout_height="@dimen/standard_height"
-                android:layout_below="@id/passwordTEL"
-                android:layout_centerHorizontal="true"
+                tools:layout_below="@id/passwordTEL"
+                tools:layout_centerHorizontal="true"
                 android:layout_marginStart="@dimen/grid_2x"
                 android:layout_marginTop="@dimen/grid_2x"
                 android:layout_marginEnd="@dimen/grid_2x"
                 android:layout_marginBottom="@dimen/grid_2x"
                 android:onClick="onSignup"
-                android:style="@styles/StandardButton"
+                style="@style/StandardButton"
                 android:text="@string/button_signup">
 
             </Button>
@@ -125,18 +125,18 @@
                 android:id="@+id/loginTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/buttonSignup"
-                android:layout_centerHorizontal="true"
+                tools:layout_below="@+id/buttonSignup"
+                tools:layout_centerHorizontal="true"
                 android:layout_margin="@dimen/grid_2x"
                 android:text="@string/text_login"
-                android:style="@styles/LinkText"
+                style="@style/LinkText"
                 android:onClick="goTOLogin"
-                android:clickable="true"
+                tools:clickable="true"
                 />
 
 
         </RelativeLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
         android:id="@+id/signupProgressLayout"

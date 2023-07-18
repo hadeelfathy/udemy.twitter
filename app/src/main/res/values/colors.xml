@@ -11,6 +11,9 @@
     <color name="dark_grey">#777777</color>
     <color name="transparent_grey">#99cccccc</color>
     <color name="shadow_color">#cadddddd</color>
+    <color name="teal_200">#6fa667</color>
+    <color name="teal_700">#4c7346</color>
+    <color name="green_500">#1db505</color>
 
 
 

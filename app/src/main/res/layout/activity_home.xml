@@ -29,7 +29,7 @@
                 android:id="@+id/logo"
                 android:layout_height="@dimen/standard_image"
                 android:layout_width="@dimen/standard_image"
-                android:scaleType="centerCrop"
+                tools:scaleType="centerCrop"
                 android:src="@drawable/default_user" />
 
 
@@ -43,7 +43,7 @@
             android:paddingLeft="@dimen/grid_3x"
             android:layout_gravity="center_vertical"
             android:text="Home"
-            android:style="@style/Heading"
+            style="@style/Heading"
             >
 
         </TextView>
@@ -82,6 +82,102 @@
         </androidx.cardview.widget.CardView>
 
     </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/standard_height"
+        android:layout_marginBottom="@dimen/grid_2x"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:tabIndicator="@null">
+
+      <com.google.android.material.tabs.TabItem
+          android:id="@+id/tabHome"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:icon="@drawable/selector_home"
+          >
+
+      </com.google.android.material.tabs.TabItem>
+
+
+
+
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/selector_search"
+            >
+
+        </com.google.android.material.tabs.TabItem>
+
+
+
+
+
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabMyActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/selector_myactivity"
+            >
+
+        </com.google.android.material.tabs.TabItem>
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tabs"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+
+    </androidx.viewpager.widget.ViewPager>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/grid_3x"
+        tools:clickable="true"
+        android:src="@drawable/feather"
+        app:layout_constraintBottom_toTopOf="@+id/tabs"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/homeProgressLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent_grey"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="5dp"
+
+
+            >
+
+        </ProgressBar>
+    </LinearLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
