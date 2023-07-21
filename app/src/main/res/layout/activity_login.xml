@@ -20,9 +20,12 @@
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:layout_centerHorizontal="true"
-                android:layout_margin="@dimen/grid_2x"
-                android:src="@drawable/title">
+                android:layout_marginStart="@dimen/grid_2x"
+                android:layout_marginTop="@dimen/grid_2x"
+                android:layout_marginEnd="@dimen/grid_2x"
+                android:layout_marginBottom="@dimen/grid_2x"
+                android:src="@drawable/title"
+                tools:layout_centerHorizontal="true">
 
             </ImageView>
 
