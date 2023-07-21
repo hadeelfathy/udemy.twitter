@@ -29,14 +29,14 @@
 
 
          <com.google.android.material.textfield.TextInputLayout
-             android:id="@+id/nameTIL"
+             android:id="@+id/usernameTIL"
              android:layout_width="@dimen/standard_width"
              android:layout_height="wrap_content"
              tools:layout_below="@id/photoIV"
              android:paddingBottom="@dimen/grid_2x">
 
              <com.google.android.material.textfield.TextInputEditText
-                 android:id="@+id/nameET"
+                 android:id="@+id/usernameET"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
                  android:hint="@string/hint_username">
@@ -74,7 +74,7 @@
               android:layout_width="@dimen/standard_width"
               android:layout_height="@dimen/standard_height"
               tools:layout_below="@id/emailTIL"
-              android:onClick=""
+              android:onClick="onApply"
               android:layout_marginBottom="@dimen/grid_2x"
               android:text="@string/button_apply"
               style="@style/StandardButton"/>
@@ -86,7 +86,7 @@
               android:layout_width="@dimen/standard_width"
               android:layout_height="@dimen/standard_height"
               tools:layout_below="@id/applyButton"
-              android:onClick=""
+              android:onClick="onSignOut"
               android:layout_marginBottom="@dimen/grid_2x"
               android:text="@string/button_signOut"
               style="@style/StandardButton"
