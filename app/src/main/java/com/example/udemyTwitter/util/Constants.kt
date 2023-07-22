@@ -8,8 +8,8 @@ val DATA_USER_IMAGE_URL="imageUrl"
 val DATA_USER_HASHTAGS="followHashtags"
 val DATA_USER_FOLLOW="followUsers"
 
-
-
+val REQUEST_CODE_PHOTO= 355
+val DATA_IMAGES="ProfileImages"
 
 
 

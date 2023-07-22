@@ -12,9 +12,14 @@ import com.example.udemyTwitter.R
 import com.example.udemyTwitter.fragments.HomeFragment
 import com.example.udemyTwitter.fragments.MyActivityFragment
 import com.example.udemyTwitter.fragments.SearchFragment
+import com.example.udemyTwitter.util.DATA_USERS
+import com.example.udemyTwitter.util.User
+import com.example.udemyTwitter.util.loadUrl
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.activity_profile.*
 
 class HomeActivity : AppCompatActivity() {
 
@@ -25,9 +30,10 @@ class HomeActivity : AppCompatActivity() {
    private val homeFragment= HomeFragment()
    private val searchFragment= SearchFragment()
    private val myActivityFragment= MyActivityFragment()
+    private val firebaseDB = FirebaseFirestore.getInstance()
 
     private var userId= FirebaseAuth.getInstance().currentUser?.uid
-
+    private var user:User?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,10 +72,30 @@ class HomeActivity : AppCompatActivity() {
          finish()
       }
 
-
+        populate()
     }
 
+    fun populate(){
+        profileProgressLayout.visibility= View.VISIBLE
+        firebaseDB.collection(DATA_USERS).document(userId!!).get()
+            .addOnSuccessListener {  documentSnapshot->
+                homeProgressLayout.visibility= View.GONE
 
+                 user= documentSnapshot.toObject(User::class.java)
+                 user?.imageUrl.let {
+                    logo.loadUrl(it,R.drawable.logo)
+
+
+                }
+                homeProgressLayout.visibility= View.GONE
+
+            }
+
+            .addOnFailureListener { e->
+                e.printStackTrace()
+                finish()
+            }
+    }
 
 
 
