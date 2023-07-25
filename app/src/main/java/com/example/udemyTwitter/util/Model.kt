@@ -10,3 +10,29 @@ data class User(
 
 
 )
+
+
+
+data class Tweet(
+
+    val TweetId:String?="" ,
+    val userIds:ArrayList<String>? = arrayListOf(),
+    val userName:String?="",
+    val text:String?="",
+    val imageUrl:String?="" ,
+    val hashtags:ArrayList<String>? = arrayListOf(),
+    val timeStamp:Long?=0 ,
+    val likes:ArrayList<String>? = arrayListOf()
+
+
+)
+
+
+
+
+
+
+
+
+
+

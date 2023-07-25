@@ -19,6 +19,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_profile.*
 
 class HomeActivity : AppCompatActivity() {
@@ -59,6 +60,12 @@ class HomeActivity : AppCompatActivity() {
         logo.setOnClickListener { view ->
             startActivity(ProfileActivity.newIntent(this))
         }
+
+        fab.setOnClickListener{  view->
+            startActivity(TweetActivity.newIntent(this,userId,user?.username))
+        }
+        homeProgressLayout.setOnTouchListener { v, event -> true }
+
 
     }
 
