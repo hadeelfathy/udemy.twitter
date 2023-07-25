@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/tweetUsername"
+        android:layout_marginTop="@dimen/grid_2x"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+         />
+
+
+    <TextView
+        android:id="@+id/tweetText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/grid_2x"
+        android:textSize="@dimen/standard_text_size"
+        app:layout_constraintTop_toBottomOf="@+id/tweetUsername" />
+
+
+    <ImageView
+        android:id="@+id/tweetImage"
+        android:layout_marginTop="@dimen/grid_2x"
+        tools:adjustViewBounds="true"
+        tools:scaleType="centerInside"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tweetText" />
+
+    <TextView
+        android:id="@+id/tweetDate"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/tweetImage"
+        android:layout_marginTop="@dimen/grid_2x"
+
+        android:layout_height="wrap_content"/>
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         app:layout_constraintTop_toBottomOf="@+id/tweetDate"
+         android:layout_marginTop="@dimen/grid_2x"
+         android:orientation="horizontal"
+         android:layout_height="wrap_content">
+
+
+         <LinearLayout
+             android:layout_height="wrap_content"
+             android:layout_width="0dp"
+             android:orientation="horizontal"
+             android:gravity="center"
+             android:layout_weight="1">
+
+           <ImageView
+               android:id="@+id/tweetLike"
+               android:src="@drawable/like_inactive"
+               tools:scaleType="centerInside"
+               android:padding="@dimen/grid_1x"
+               android:layout_height="@dimen/small_image"
+               android:layout_width="@dimen/small_image" />
+
+            <TextView
+             android:id="@+id/tweetLikeCount"
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:gravity="center_vertical"
+             android:textSize="@dimen/standard_text_size"
+             android:paddingLeft="@dimen/grid_2x"/>
+
+
+         </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_weight="1">
+
+
+            <ImageView
+                android:id="@+id/tweetRetweet"
+                android:src="@drawable/retweet_inactive"
+                tools:scaleType="centerInside"
+                android:padding="@dimen/grid_1x"
+                android:layout_height="@dimen/small_image"
+                android:layout_width="@dimen/small_image"
+                android:text="0"
+                android:background="@null"/>
+
+            <TextView
+                android:id="@+id/tweetRetweetCount"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/standard_text_size"
+                android:text="0"
+                android:paddingLeft="@dimen/grid_2x"/>
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+     </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
