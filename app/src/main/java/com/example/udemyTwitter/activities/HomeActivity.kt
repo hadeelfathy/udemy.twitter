@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -65,6 +66,20 @@ class HomeActivity : AppCompatActivity() {
             startActivity(TweetActivity.newIntent(this,userId,user?.username))
         }
         homeProgressLayout.setOnTouchListener { v, event -> true }
+
+        search.setOnEditorActionListener { v, actionId, event ->
+            if (actionId== EditorInfo.IME_ACTION_DONE || actionId== EditorInfo.IME_ACTION_SEARCH){
+                SearchFragment.newHashtag(v?.text.toString())
+            }
+            true
+        }
+
+
+
+
+
+
+
 
 
     }

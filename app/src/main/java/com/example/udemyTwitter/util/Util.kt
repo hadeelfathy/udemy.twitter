@@ -6,6 +6,9 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.udemyTwitter.R
+import java.text.DateFormat
+import java.text.DateFormatSymbols
+import java.util.*
 
 fun ImageView.loadUrl(url:String?,errorDrawable:Int= R.drawable.empty){
 
@@ -31,7 +34,14 @@ fun ImageView.loadUrl(url:String?,errorDrawable:Int= R.drawable.empty){
 
   }
 
+  fun getDate(s:Long?):String{
+      s?.let {
+          val df= DateFormat.getInstance()
+          return df.format(Date(it))
+      }
+      return "unknown"
 
+  }
 
 
 
