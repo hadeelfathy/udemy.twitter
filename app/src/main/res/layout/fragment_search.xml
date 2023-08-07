@@ -14,6 +14,7 @@
         android:layout_marginTop="@dimen/grid_2x"
         android:layout_marginEnd="@dimen/grid_2x"
         app:elevation="1dp"
+        android:visibility="gone"
         android:src="@drawable/follow_inactive"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/swipeRefresh"

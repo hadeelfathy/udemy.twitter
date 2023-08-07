@@ -29,25 +29,50 @@ class HomeActivity : AppCompatActivity() {
 
 
     private var sectionPagerAdapter:SectionPagerAdapter?=null
-   private val homeFragment= HomeFragment()
-   private val searchFragment= SearchFragment()
-   private val myActivityFragment= MyActivityFragment()
+    private val homeFragment= HomeFragment()
+    private val searchFragment= SearchFragment()
+    private val myActivityFragment= MyActivityFragment()
     private val firebaseDB = FirebaseFirestore.getInstance()
 
     private var userId= FirebaseAuth.getInstance().currentUser?.uid
     private var user:User?=null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
-    sectionPagerAdapter=SectionPagerAdapter(supportFragmentManager)
-     container.adapter= sectionPagerAdapter
-     container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
-      tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
-      tabs.addOnTabSelectedListener(object :TabLayout.OnTabSelectedListener{
+       override fun onCreate(savedInstanceState: Bundle?) {
+          super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_home)
+
+           sectionPagerAdapter=SectionPagerAdapter(supportFragmentManager)
+
+
+        container.adapter= sectionPagerAdapter
+        container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
+        tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
+        tabs.addOnTabSelectedListener(object :TabLayout.OnTabSelectedListener{
           override fun onTabSelected(tab: TabLayout.Tab?) {
-              TODO("Not yet implemented")
-          }
+             when(tab?.position){
+                 0->{
+                    searchBar.visibility= View.GONE
+                    titleBar.text= "Home"
+                    titleBar.visibility= View.VISIBLE
+                 }
+                 1->{
+                     searchBar.visibility= View.VISIBLE
+                     titleBar.visibility= View.GONE
+
+                 }
+                 2->{
+                     searchBar.visibility= View.GONE
+                     titleBar.text= "My Activity"
+                     titleBar.visibility= View.VISIBLE
+
+
+                 }
+             }
+
+
+
+
+           }
 
           override fun onTabUnselected(tab: TabLayout.Tab?) {
               TODO("Not yet implemented")
