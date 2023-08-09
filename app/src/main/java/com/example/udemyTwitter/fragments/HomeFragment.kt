@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import com.example.udemyTwitter.R
 
 class HomeFragment : TwitterFragment() {
+    override fun updateList() {
+
+    }
 
 
     override fun onCreateView(

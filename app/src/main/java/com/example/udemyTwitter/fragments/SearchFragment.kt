@@ -1,31 +1,30 @@
 package com.example.udemyTwitter.fragments
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.udemyTwitter.R
 import com.example.udemyTwitter.adapters.TweetListAdapter
 import com.example.udemyTwitter.listeners.TweetListener
-import com.example.udemyTwitter.util.DATA_TWEETS
-import com.example.udemyTwitter.util.DATA_TWEET_HASHTAGS
-import com.example.udemyTwitter.util.Tweet
+import com.example.udemyTwitter.util.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_search.*
 
 
-class SearchFragment : Fragment() {
+class SearchFragment : TwitterFragment() {
 
-    private val dataBase= FirebaseFirestore.getInstance()
     private var currentHashtag:String= ""
-    private var tweetsAdapter: TweetListAdapter?= null
-    private val userId= FirebaseAuth.getInstance().currentUser?.uid
-    private val listener: TweetListener?= null
+
+    private var followedHashtag = false
+
 
 
     override fun onCreateView(
@@ -52,9 +51,34 @@ class SearchFragment : Fragment() {
            swipeRefresh.isRefreshing= false
            updateList()
        }
+
+        followHashtag.setOnClickListener {
+            followHashtag.isClickable= false
+            val followed= currentUser?.followHashtags
+
+            if (followedHashtag){
+                followed?.remove(currentHashtag)
+            }else {
+
+                followed?.add(currentHashtag)
+            }
+                dataBase.collection(DATA_USERS).document(userId).update(DATA_USER_HASHTAGS,currentHashtag)
+                    .addOnSuccessListener {
+                        callback?.onUserUpdate()
+                        followHashtag.isClickable= true
+
+
+                    }
+                    .addOnFailureListener { e->
+                        e.printStackTrace()
+                        followHashtag.isClickable= true
+
+                    }
+
+        }
+
+
     }
-
-
 
 
 
@@ -66,7 +90,7 @@ class SearchFragment : Fragment() {
     }
 
 
-    fun updateList(){
+    override fun updateList(){
 
        tweetList.visibility= View.GONE
        dataBase.collection(DATA_TWEETS).whereArrayContains(DATA_TWEET_HASHTAGS,currentHashtag).get()
@@ -87,22 +111,23 @@ class SearchFragment : Fragment() {
                e.printStackTrace()
            }
 
-
-
-
-
-
-
-
-
-
-
+        updateHashtagDrawable()
 
 
     }
 
+    fun updateHashtagDrawable() {
+        followedHashtag = currentUser?.followHashtags?.contains(currentHashtag) == true
+        context?.let {
+            if (followedHashtag) {
+                followHashtag.setImageDrawable(ContextCompat.getDrawable(it, R.drawable.follow))
+            } else {
+                followHashtag.setImageDrawable(ContextCompat.getDrawable(it, R.drawable.follow_inactive))
 
+            }
 
+        }
+    }
 
 
 

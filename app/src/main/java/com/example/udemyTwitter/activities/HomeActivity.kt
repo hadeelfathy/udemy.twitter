@@ -13,6 +13,8 @@ import com.example.udemyTwitter.R
 import com.example.udemyTwitter.fragments.HomeFragment
 import com.example.udemyTwitter.fragments.MyActivityFragment
 import com.example.udemyTwitter.fragments.SearchFragment
+import com.example.udemyTwitter.fragments.TwitterFragment
+import com.example.udemyTwitter.listeners.HomeCallback
 import com.example.udemyTwitter.util.DATA_USERS
 import com.example.udemyTwitter.util.User
 import com.example.udemyTwitter.util.loadUrl
@@ -23,7 +25,7 @@ import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_profile.*
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(),HomeCallback {
 
     private val firebaseAuth= FirebaseAuth.getInstance()
 
@@ -33,6 +35,7 @@ class HomeActivity : AppCompatActivity() {
     private val searchFragment= SearchFragment()
     private val myActivityFragment= MyActivityFragment()
     private val firebaseDB = FirebaseFirestore.getInstance()
+    private var currentFragment: TwitterFragment= HomeFragment()
 
     private var userId= FirebaseAuth.getInstance().currentUser?.uid
     private var user:User?=null
@@ -54,17 +57,19 @@ class HomeActivity : AppCompatActivity() {
                     searchBar.visibility= View.GONE
                     titleBar.text= "Home"
                     titleBar.visibility= View.VISIBLE
+                    currentFragment= HomeFragment()
                  }
                  1->{
                      searchBar.visibility= View.VISIBLE
                      titleBar.visibility= View.GONE
+                     currentFragment= SearchFragment()
 
                  }
                  2->{
                      searchBar.visibility= View.GONE
                      titleBar.text= "My Activity"
                      titleBar.visibility= View.VISIBLE
-
+                     currentFragment= MyActivityFragment()
 
                  }
              }
@@ -117,10 +122,17 @@ class HomeActivity : AppCompatActivity() {
         if (userId==null){
           startActivity(LoginActivity.newIntent(this))
          finish()
-      }
+      }else{
 
-        populate()
+        populate()}
     }
+
+    override fun onUserUpdate() {
+        populate()
+
+    }
+
+
 
     fun populate(){
         profileProgressLayout.visibility= View.VISIBLE
@@ -134,8 +146,7 @@ class HomeActivity : AppCompatActivity() {
 
 
                 }
-                homeProgressLayout.visibility= View.GONE
-
+               updateFragmentUser()
             }
 
             .addOnFailureListener { e->
@@ -144,7 +155,12 @@ class HomeActivity : AppCompatActivity() {
             }
     }
 
-
+     fun updateFragmentUser(){
+         searchFragment.setUser(user)
+         homeFragment.setUser(user)
+         myActivityFragment.setUser(user)
+         currentFragment.updateList()
+     }
 
     inner class SectionPagerAdapter(fm:FragmentManager):FragmentPagerAdapter(fm){
         override fun getCount() = 3
