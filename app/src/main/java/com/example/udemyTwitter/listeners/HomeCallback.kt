@@ -5,7 +5,7 @@ interface HomeCallback {
 
    fun onUserUpdate()
 
-
+   fun onRefresh()
 
 
 

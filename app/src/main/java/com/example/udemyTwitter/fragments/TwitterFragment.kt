@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import com.example.udemyTwitter.adapters.TweetListAdapter
 import com.example.udemyTwitter.listeners.HomeCallback
 import com.example.udemyTwitter.listeners.TweetListener
+import com.example.udemyTwitter.listeners.TwitterListImpl
 import com.example.udemyTwitter.util.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -15,7 +16,7 @@ abstract class TwitterFragment :Fragment(){
     protected var tweetsAdapter: TweetListAdapter?= null
     protected val userId= FirebaseAuth.getInstance().currentUser?.uid
     protected var currentUser: User?= null
-    protected val listener: TweetListener?= null
+    protected val listener: TwitterListImpl?= null
     protected val dataBase= FirebaseFirestore.getInstance()
     protected var callback:HomeCallback?= null
 
