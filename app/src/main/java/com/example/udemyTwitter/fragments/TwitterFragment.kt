@@ -16,7 +16,7 @@ abstract class TwitterFragment :Fragment(){
     protected var tweetsAdapter: TweetListAdapter?= null
     protected val userId= FirebaseAuth.getInstance().currentUser?.uid
     protected var currentUser: User?= null
-    protected val listener: TwitterListImpl?= null
+    protected var listener: TwitterListImpl?= null
     protected val dataBase= FirebaseFirestore.getInstance()
     protected var callback:HomeCallback?= null
 

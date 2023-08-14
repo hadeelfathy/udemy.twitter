@@ -99,7 +99,7 @@ class HomeActivity : AppCompatActivity(),HomeCallback {
 
         search.setOnEditorActionListener { v, actionId, event ->
             if (actionId== EditorInfo.IME_ACTION_DONE || actionId== EditorInfo.IME_ACTION_SEARCH){
-                SearchFragment.newHashtag(v?.text.toString())
+                searchFragment.newHashtag(v?.text.toString())
             }
             true
         }
